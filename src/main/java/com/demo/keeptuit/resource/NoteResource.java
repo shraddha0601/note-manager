@@ -6,8 +6,6 @@ import com.demo.keeptuit.model.NoteMedia;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.Authorization;
-import io.swagger.annotations.AuthorizationScope;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,13 +31,13 @@ public class NoteResource {
 
     public NoteMedia getNote(@ApiParam(value = "unique identifier of the client") @PathVariable("id") String id) {
         NoteDb note = new NoteDb();
-        note.setDescription("shraddha's test note");
+        note.setContent("shraddha's test note");
         note.setName(id);
 
         NoteDb noteSaved = noteRepository.save(note);
 
         NoteDb fetched = noteRepository.findOne(noteSaved.getId());
-        return new NoteMedia().withId(fetched.getId().toString()).withTitle(fetched.getName()).withContents(fetched.getDescription());
+        return new NoteMedia().withId(fetched.getId().toString()).withTitle(fetched.getName()).withContents(fetched.getContent());
     }
 
 

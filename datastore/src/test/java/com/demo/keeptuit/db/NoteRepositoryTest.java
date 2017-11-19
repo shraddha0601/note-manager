@@ -1,3 +1,5 @@
+package com.demo.keeptuit.db;
+
 import com.demo.keeptuit.db.TestConfiguration;
 import com.demo.keeptuit.db.config.DbConfiguration;
 import com.demo.keeptuit.db.entity.NoteDb;
@@ -19,10 +21,7 @@ public class NoteRepositoryTest extends AbstractTestNGSpringContextTests {
     @Test
     public void canSaveAndGetNotes() throws Exception {
 
-        NoteDb note = new NoteDb();
-        note.setDescription("test");
-        note.setName("test");
-
+        NoteDb note = new NoteDb().withContent("Testing").withName("Demo-Testing-1");
         NoteDb noteSaved = noteRepository.save(note);
         assertNotNull(noteSaved);
 
