@@ -1,7 +1,9 @@
 package com.demo.keeptuit.resource;
 
 import com.demo.keeptuit.db.entity.NoteDb;
+import com.demo.keeptuit.db.entity.UserDb;
 import com.demo.keeptuit.db.repository.NoteRepository;
+import com.demo.keeptuit.db.repository.UserRepository;
 import com.demo.keeptuit.model.NoteMedia;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,21 +25,20 @@ public class NoteResource {
     @Autowired
     private NoteRepository noteRepository;
 
-    @RequestMapping(path = "/notes/{id}" , method = RequestMethod.GET, produces = NoteMedia.MEDIA_TYPE)
+    @Autowired
+    private UserRepository userRepository;
+
+    @RequestMapping(path = "/notes/{userName}" , method = RequestMethod.GET, produces = NoteMedia.MEDIA_TYPE)
     @ResponseBody
     @ApiOperation(value = "List the existing notes", notes =
             "List the registrations. If the domainName parameter is provided it will return " +
                     "a list with a unique registration that is configured for this domain.")
 
-    public NoteMedia getNote(@ApiParam(value = "unique identifier of the client") @PathVariable("id") String id) {
-        NoteDb note = new NoteDb();
-        note.setContent("shraddha's test note");
-        note.setName(id);
+    public NoteMedia getNotes(@ApiParam(value = "unique identifier of the client") @PathVariable("userName") String userName) {
+        UserDb user = userRepository.findByUserName(userName);
+        NoteDb note = user.getNotes().get(0);
 
-        NoteDb noteSaved = noteRepository.save(note);
-
-        NoteDb fetched = noteRepository.findOne(noteSaved.getId());
-        return new NoteMedia().withId(fetched.getId().toString()).withTitle(fetched.getName()).withContents(fetched.getContent());
+        return new NoteMedia().withId(note.getId().toString()).withTitle(note.getName()).withContents(note.getContent());
     }
 
 

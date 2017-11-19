@@ -63,7 +63,7 @@ public class UserDb extends Versioned {
         this.email = email;
     }
 
-    @OneToMany(targetEntity = NoteDb.class, mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = NoteDb.class, mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     public List<NoteDb> getNotes() {
         return notes;
     }
