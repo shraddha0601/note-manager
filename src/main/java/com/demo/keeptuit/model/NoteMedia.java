@@ -9,7 +9,7 @@ public class NoteMedia extends AbstractMediaType {
     private String id;
     private String title;
     private String contents;
-    private Long userId;
+    private String userName;
 
     public String getId() {
         return id;
@@ -35,12 +35,12 @@ public class NoteMedia extends AbstractMediaType {
         this.contents = contents;
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public NoteMedia withTitle(String title) {
@@ -57,6 +57,9 @@ public class NoteMedia extends AbstractMediaType {
         return this;
     }
 
-
+    public NoteMedia withUserName(String userName) {
+        this.userName = userName;
+        return this;
+    }
 }
 
