@@ -12,6 +12,4 @@ public interface NoteDataService {
     NoteDb updateNote(NoteDb note);
 
     NoteDb deleteNote(Long noteId);
-
-    List<NoteDb> getAllNotesForUser(Long userId);
 }

@@ -21,7 +21,4 @@ public class NoteDataServiceImpl implements NoteDataService {
         return null;
     }
 
-    public List<NoteDb> getAllNotesForUser(Long userId) {
-        return null;
-    }
 }

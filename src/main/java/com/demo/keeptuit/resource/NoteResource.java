@@ -1,5 +1,6 @@
 package com.demo.keeptuit.resource;
 
+import com.demo.keeptuit.UserService;
 import com.demo.keeptuit.db.entity.NoteDb;
 import com.demo.keeptuit.db.entity.UserDb;
 import com.demo.keeptuit.db.repository.NoteRepository;
@@ -28,10 +29,7 @@ import java.util.stream.Collectors;
 public class NoteResource {
 
     @Autowired
-    private NoteRepository noteRepository;
-
-    @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @RequestMapping(path = "/notes/{userName}" , method = RequestMethod.GET, produces = NoteListMedia.MEDIA_TYPE_LIST)
     @ResponseBody
@@ -40,15 +38,15 @@ public class NoteResource {
                     "a list with a unique registration that is configured for this domain.")
 
     public NoteListMedia getNotes(@ApiParam(value = "unique identifier of the user") @PathVariable("userName") String userName) {
-        UserDb user = userRepository.findByUserName(userName);
+        List<NoteDb> noteDbs = userService.getNotesForUser(userName);
 
-        List<NoteMedia> notes = user.getNotes().stream()
-                                    .map(note -> new NoteMedia()
-                                                    .withId(note.getId().toString())
-                                                    .withTitle(note.getName())
-                                                    .withUserName(userName)
-                                                    .withContents(note.getContent()))
-                                    .collect(Collectors.toList());
+        List<NoteMedia> notes = noteDbs.stream()
+                .map(note -> new NoteMedia()
+                        .withId(note.getId().toString())
+                        .withTitle(note.getName())
+                        .withUserName(userName)
+                        .withContents(note.getContent()))
+                .collect(Collectors.toList());
 
         return new NoteListMedia().withItems(notes).getThis();
     }
