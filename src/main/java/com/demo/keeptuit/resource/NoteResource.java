@@ -1,5 +1,6 @@
 package com.demo.keeptuit.resource;
 
+import com.demo.keeptuit.exception.InvalidResourceException;
 import com.demo.keeptuit.service.NoteService;
 import com.demo.keeptuit.service.UserService;
 import com.demo.keeptuit.db.entity.NoteDb;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.ConstraintViolationException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,16 +46,14 @@ public class NoteResource {
      */
     @RequestMapping(path = "/notes/{userName}" , method = RequestMethod.GET, produces = NoteListMedia.MEDIA_TYPE_LIST)
     @ResponseBody
-    @ApiOperation(value = "List all of the user's existing notes", notes =
-            "List the registrations. If the domainName parameter is provided it will return " +
-                    "a list with a unique registration that is configured for this domain.")
-
+    @ApiOperation(value = "List existing notes for a user")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "the notes were retrieved")})
     public NoteListMedia getNotes(@ApiParam(value = "unique identifier of the user") @PathVariable("userName") String userName) {
         List<NoteDb> noteDbs = userService.getNotesForUser(userName);
 
         List<NoteMedia> notes = noteDbs.stream()
                 .map(note -> new NoteMedia()
-                        .withId(note.getId().toString())
+                        .withId(note.getId())
                         .withTitle(note.getTitle())
                         .withUserName(userName)
                         .withContents(note.getContent()))
@@ -66,20 +66,22 @@ public class NoteResource {
     /**
      * Create a note for a user
      */
-    @ApiOperation("")
+    @ApiOperation("Create a new note for given user")
     @ApiResponses(value = {@ApiResponse(code = 201, message = "the note was created")})
-
     @RequestMapping(path = "/notes/{userName}", method = RequestMethod.POST, consumes = NoteMedia.MEDIA_TYPE, produces = NoteMedia.MEDIA_TYPE)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public NoteMedia createNote(@ApiParam(value = "unique identifier of the user") @PathVariable("userName") String userName,
-                             @ApiParam(value = "the note") @RequestBody NoteDb note) {
-        //TODO : validate the input note
-        NoteDb createdNote = noteService.createNote(userName, note);
+                             @ApiParam(value = "the note") @RequestBody NoteMedia noteMedia) {
+        try {
+            NoteDb createdNote = noteService.createNote(userName, new NoteDb().withContent(noteMedia.getContent()).withTitle(noteMedia.getTitle()));
+            return new NoteMedia().withUserName(userName)
+                    .withContents(createdNote.getContent())
+                    .withTitle(createdNote.getTitle());
 
-        return new NoteMedia().withUserName(userName)
-                .withContents(createdNote.getContent())
-                .withTitle(createdNote.getTitle());
+        } catch (ConstraintViolationException e) {
+            throw new InvalidResourceException();
+        }
     }
 
 

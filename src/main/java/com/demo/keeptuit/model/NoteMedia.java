@@ -1,24 +1,29 @@
 package com.demo.keeptuit.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Media type for note
  */
+@ApiModel(value = "Note", description = "A note")
 public class NoteMedia extends AbstractMediaType {
     public static final String MEDIA_TYPE = MEDIA_TYPE_NAME_BASE + "note" + SERIALIZATION_FORMAT_JSON;
 
-    private String id;
+    private Long id;
     private String title;
-    private String contents;
+    private String content;
     private String userName;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
+    @ApiModelProperty(example = "\"note-title\"", value = "The note title", required = true)
     public String getTitle() {
         return title;
     }
@@ -27,12 +32,13 @@ public class NoteMedia extends AbstractMediaType {
         this.title = title;
     }
 
-    public String getContents() {
-        return contents;
+    @ApiModelProperty(example = "\"note-content\"", value = "The note details", required = false)
+    public String getContent() {
+        return content;
     }
 
-    public void setContents(String contents) {
-        this.contents = contents;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getUserName() {
@@ -48,12 +54,12 @@ public class NoteMedia extends AbstractMediaType {
         return this;
     }
 
-    public NoteMedia withContents(String contents) {
-        this.contents = contents;
+    public NoteMedia withId(Long id) {
+        this.id = id;
         return this;
     }
-    public NoteMedia withId(String id) {
-        this.id = id;
+    public NoteMedia withContents(String contents) {
+        this.content = contents;
         return this;
     }
 

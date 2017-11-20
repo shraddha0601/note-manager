@@ -7,11 +7,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "User")
 public class UserDb extends Versioned {
+
+    private static final int USERNAME_MAX_LENGTH = 15;
+    private static final String USERNAME_INVALID_NAME = "Invalid username";
+    private static final String USERNAME_REQUIRED_TITLE = "Username cannot be left blank";
+    private static final String EMAIL_INVALID = "Must provide a valid email";
 
     private Long id;
     private String userName;
@@ -31,6 +39,8 @@ public class UserDb extends Versioned {
         this.id = id;
     }
 
+    @Size(max = USERNAME_MAX_LENGTH, message = USERNAME_INVALID_NAME)
+    @NotBlank(message = USERNAME_REQUIRED_TITLE)
     public String getUserName() {
         return userName;
     }
@@ -55,6 +65,7 @@ public class UserDb extends Versioned {
         this.lastName = lastName;
     }
 
+    @Email(message = EMAIL_INVALID)
     public String getEmail() {
         return email;
     }

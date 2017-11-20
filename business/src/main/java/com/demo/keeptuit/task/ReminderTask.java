@@ -50,7 +50,8 @@ public class ReminderTask {
         template.setTo("ladda.shraddha@gmail.com");
         template.setSubject("Testing APP");
         template.setText(text);
-        mailSender.send(template);
+        //TODO:Fix this
+//        mailSender.send(template);
         log.info("The time is now {}", dateFormat.format(new Date()));
     }
 }
