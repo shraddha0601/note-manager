@@ -77,7 +77,8 @@ public class NoteResource {
             NoteDb createdNote = noteService.createNote(userName, new NoteDb().withContent(noteMedia.getContent()).withTitle(noteMedia.getTitle()));
             return new NoteMedia().withUserName(userName)
                     .withContents(createdNote.getContent())
-                    .withTitle(createdNote.getTitle());
+                    .withTitle(createdNote.getTitle())
+                    .withId(createdNote.getId());
 
         } catch (ConstraintViolationException e) {
             throw new InvalidResourceException();
