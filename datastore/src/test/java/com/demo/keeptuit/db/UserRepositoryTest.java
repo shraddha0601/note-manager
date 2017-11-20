@@ -3,7 +3,6 @@ package com.demo.keeptuit.db;
 import com.demo.keeptuit.db.config.DbConfiguration;
 import com.demo.keeptuit.db.entity.NoteDb;
 import com.demo.keeptuit.db.entity.UserDb;
-import com.demo.keeptuit.db.repository.NoteRepository;
 import com.demo.keeptuit.db.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,8 +22,8 @@ public class UserRepositoryTest extends AbstractTestNGSpringContextTests {
     @Test
     public void canSaveAndGetUsers() throws Exception {
 
-        NoteDb note1 = new NoteDb().withContent("Testing").withName("Demo-Testing-1");
-        NoteDb note2 = new NoteDb().withContent("Testing").withName("Demo-Testing-1");
+        NoteDb note1 = new NoteDb().withContent("Testing").withTitle("Demo-Testing-1");
+        NoteDb note2 = new NoteDb().withContent("Testing").withTitle("Demo-Testing-1");
 
         UserDb user = new UserDb().withUserName("User-12").withNotes(Arrays.asList(note1, note2));
         UserDb savedUser = userRepository.save(user);

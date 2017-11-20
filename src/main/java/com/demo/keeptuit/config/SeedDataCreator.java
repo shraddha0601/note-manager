@@ -21,8 +21,8 @@ public class SeedDataCreator {
     }
 
     private void init() {
-        NoteDb note1 = new NoteDb().withContent("Note1").withName("Note1");
-        NoteDb note2 = new NoteDb().withContent("Note2").withName("Note2");
+        NoteDb note1 = new NoteDb().withContent("Note1").withTitle("Note1");
+        NoteDb note2 = new NoteDb().withContent("Note2").withTitle("Note2");
 
         UserDb user1 = new UserDb().withUserName("jediLuke")
                 .withFirstName("Luke").withLastName("Skywalker")

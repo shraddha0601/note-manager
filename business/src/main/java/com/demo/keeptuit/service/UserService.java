@@ -1,4 +1,4 @@
-package com.demo.keeptuit;
+package com.demo.keeptuit.service;
 
 import com.demo.keeptuit.db.datalayer.api.UserDataService;
 import com.demo.keeptuit.db.entity.NoteDb;
