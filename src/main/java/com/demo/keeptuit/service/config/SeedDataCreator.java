@@ -1,8 +1,8 @@
-package com.demo.keeptuit.config;
+package com.demo.keeptuit.service.config;
 
-import com.demo.keeptuit.db.entity.NoteDb;
-import com.demo.keeptuit.db.entity.UserDb;
-import com.demo.keeptuit.db.repository.UserRepository;
+import com.demo.keeptuit.service.db.entity.NoteDb;
+import com.demo.keeptuit.service.db.entity.UserDb;
+import com.demo.keeptuit.service.db.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

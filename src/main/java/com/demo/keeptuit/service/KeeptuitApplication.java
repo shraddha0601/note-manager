@@ -1,4 +1,4 @@
-package com.demo.keeptuit;
+package com.demo.keeptuit.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

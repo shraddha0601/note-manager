@@ -1,4 +1,4 @@
-package com.demo.keeptuit.db.config;
+package com.demo.keeptuit.service.db.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

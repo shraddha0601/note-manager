@@ -1,6 +1,5 @@
-package com.demo.keeptuit;
+package com.demo.keeptuit.service;
 
-import com.demo.keeptuit.service.NoteService;
 import org.hibernate.validator.HibernateValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +10,6 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import java.util.HashSet;
 import java.util.Set;
 
 @Component
@@ -20,7 +18,7 @@ public class ModelValidator {
 
     private Validator validator;
 
-    public ModelValidator(Validator validator) {
+    public ModelValidator() {
         ValidatorFactory factory = Validation.byProvider( HibernateValidator.class )
                 .configure()
                 .buildValidatorFactory();

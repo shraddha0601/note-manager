@@ -1,4 +1,4 @@
-package com.demo.keeptuit.config;
+package com.demo.keeptuit.service.config;
 
 import io.swagger.annotations.Api;
 import org.springframework.context.annotation.Bean;

@@ -1,6 +1,6 @@
-package com.demo.keeptuit.db.datalayer.api;
+package com.demo.keeptuit.service.db.datalayer.api;
 
-import com.demo.keeptuit.db.entity.UserDb;
+import com.demo.keeptuit.service.db.entity.UserDb;
 
 
 public interface UserDataService {

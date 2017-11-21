@@ -1,4 +1,4 @@
-package com.demo.keeptuit.task;
+package com.demo.keeptuit.service.task;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.mail.SimpleMailMessage;

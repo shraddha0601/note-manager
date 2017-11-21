@@ -1,4 +1,4 @@
-package com.demo.keeptuit.db.exception;
+package com.demo.keeptuit.service.db.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

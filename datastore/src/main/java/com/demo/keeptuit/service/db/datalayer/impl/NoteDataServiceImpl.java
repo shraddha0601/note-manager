@@ -1,10 +1,10 @@
-package com.demo.keeptuit.db.datalayer.impl;
+package com.demo.keeptuit.service.db.datalayer.impl;
 
-import com.demo.keeptuit.db.datalayer.api.NoteDataService;
-import com.demo.keeptuit.db.entity.NoteDb;
-import com.demo.keeptuit.db.exception.NoteAlreadyExistsExeption;
-import com.demo.keeptuit.db.exception.NoteNotFoundException;
-import com.demo.keeptuit.db.repository.NoteRepository;
+import com.demo.keeptuit.service.db.datalayer.api.NoteDataService;
+import com.demo.keeptuit.service.db.entity.NoteDb;
+import com.demo.keeptuit.service.db.exception.NoteAlreadyExistsExeption;
+import com.demo.keeptuit.service.db.exception.NoteNotFoundException;
+import com.demo.keeptuit.service.db.repository.NoteRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import javax.validation.ConstraintViolationException;
 
 @ParametersAreNonnullByDefault
 @Service

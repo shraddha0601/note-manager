@@ -1,9 +1,10 @@
-package com.demo.keeptuit.service;
+package com.demo.keeptuit.service.service;
 
-import com.demo.keeptuit.ModelValidator;
-import com.demo.keeptuit.db.datalayer.api.NoteDataService;
-import com.demo.keeptuit.db.datalayer.api.UserDataService;
-import com.demo.keeptuit.db.entity.NoteDb;
+import com.demo.keeptuit.service.ModelValidator;
+import com.demo.keeptuit.service.db.datalayer.api.NoteDataService;
+import com.demo.keeptuit.service.db.datalayer.api.UserDataService;
+import com.demo.keeptuit.service.db.entity.NoteDb;
+import com.demo.keeptuit.service.db.exception.UserNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,12 @@ public class NoteService {
 
     public NoteDb createNote(String userName, NoteDb note) {
         validator.validate(note);
-        note.setUser(userDataService.getUser(userName));
-        return noteDataService.createNote(note);
+        try {
+            note.setUser(userDataService.getUser(userName));
+            return noteDataService.createNote(note);
+        } catch (UserNotFoundException e) {
+            log.error("User not found: {}", userName);
+            throw e;
+        }
     }
 }

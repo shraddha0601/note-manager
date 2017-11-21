@@ -1,4 +1,4 @@
-package com.demo.keeptuit;
+package com.demo.keeptuit.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

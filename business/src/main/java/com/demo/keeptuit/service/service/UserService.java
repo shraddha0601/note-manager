@@ -1,8 +1,8 @@
-package com.demo.keeptuit.service;
+package com.demo.keeptuit.service.service;
 
-import com.demo.keeptuit.db.datalayer.api.UserDataService;
-import com.demo.keeptuit.db.entity.NoteDb;
-import com.demo.keeptuit.db.entity.UserDb;
+import com.demo.keeptuit.service.db.datalayer.api.UserDataService;
+import com.demo.keeptuit.service.db.entity.NoteDb;
+import com.demo.keeptuit.service.db.entity.UserDb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;

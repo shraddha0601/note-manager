@@ -1,4 +1,4 @@
-package com.demo.keeptuit.db.entity;
+package com.demo.keeptuit.service.db.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.demo.keeptuit.model;
+package com.demo.keeptuit.service.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

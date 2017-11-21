@@ -1,11 +1,11 @@
-package com.demo.keeptuit.resource;
+package com.demo.keeptuit.service.resource;
 
-import com.demo.keeptuit.exception.InvalidResourceException;
-import com.demo.keeptuit.service.NoteService;
-import com.demo.keeptuit.service.UserService;
-import com.demo.keeptuit.db.entity.NoteDb;
-import com.demo.keeptuit.model.NoteListMedia;
-import com.demo.keeptuit.model.NoteMedia;
+import com.demo.keeptuit.service.exception.InvalidResourceException;
+import com.demo.keeptuit.service.service.NoteService;
+import com.demo.keeptuit.service.service.UserService;
+import com.demo.keeptuit.service.db.entity.NoteDb;
+import com.demo.keeptuit.service.model.NoteListMedia;
+import com.demo.keeptuit.service.model.NoteMedia;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

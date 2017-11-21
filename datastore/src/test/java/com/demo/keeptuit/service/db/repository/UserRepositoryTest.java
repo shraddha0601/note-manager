@@ -1,10 +1,9 @@
-package com.demo.keeptuit.db.repository;
+package com.demo.keeptuit.service.db.repository;
 
-import com.demo.keeptuit.db.TestConfiguration;
-import com.demo.keeptuit.db.config.DbConfiguration;
-import com.demo.keeptuit.db.entity.NoteDb;
-import com.demo.keeptuit.db.entity.UserDb;
-import com.demo.keeptuit.db.repository.UserRepository;
+import com.demo.keeptuit.service.db.TestConfiguration;
+import com.demo.keeptuit.service.db.config.DbConfiguration;
+import com.demo.keeptuit.service.db.entity.NoteDb;
+import com.demo.keeptuit.service.db.entity.UserDb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;

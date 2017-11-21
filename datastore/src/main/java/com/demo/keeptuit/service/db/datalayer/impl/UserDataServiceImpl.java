@@ -1,13 +1,13 @@
-package com.demo.keeptuit.db.datalayer.impl;
+package com.demo.keeptuit.service.db.datalayer.impl;
 
-import com.demo.keeptuit.db.datalayer.api.UserDataService;
-import com.demo.keeptuit.db.entity.UserDb;
-import com.demo.keeptuit.db.repository.UserRepository;
+import com.demo.keeptuit.service.db.datalayer.api.UserDataService;
+import com.demo.keeptuit.service.db.entity.UserDb;
+import com.demo.keeptuit.service.db.exception.UserNotFoundException;
+import com.demo.keeptuit.service.db.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.List;
 
 @ParametersAreNonnullByDefault
 @Service
@@ -18,6 +18,10 @@ public class UserDataServiceImpl implements UserDataService {
 
     @Override
     public UserDb getUser(String userName) {
-        return userRepository.findByUserName(userName);
+        UserDb user = userRepository.findByUserName(userName);
+        if (user == null) {
+            throw new UserNotFoundException();
+        }
+        return user;
     }
 }

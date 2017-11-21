@@ -1,4 +1,4 @@
-package com.demo.keeptuit.model;
+package com.demo.keeptuit.service.model;
 
 public abstract class AbstractMediaType {
 

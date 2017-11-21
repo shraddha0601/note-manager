@@ -1,4 +1,4 @@
-package com.demo.keeptuit.db;
+package com.demo.keeptuit.service.db;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

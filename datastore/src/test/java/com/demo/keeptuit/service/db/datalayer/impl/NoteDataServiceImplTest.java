@@ -1,27 +1,22 @@
-package com.demo.keeptuit.db.datalayer.impl;
+package com.demo.keeptuit.service.db.datalayer.impl;
 
-import com.demo.keeptuit.db.TestConfiguration;
-import com.demo.keeptuit.db.config.DbConfiguration;
-import com.demo.keeptuit.db.datalayer.api.NoteDataService;
-import com.demo.keeptuit.db.entity.NoteDb;
-import com.demo.keeptuit.db.entity.UserDb;
-import com.demo.keeptuit.db.exception.NoteAlreadyExistsExeption;
-import com.demo.keeptuit.db.exception.NoteNotFoundException;
-import com.demo.keeptuit.db.repository.NoteRepository;
-import com.demo.keeptuit.db.repository.UserRepository;
-import org.apache.commons.lang3.RandomStringUtils;
+import com.demo.keeptuit.service.db.TestConfiguration;
+import com.demo.keeptuit.service.db.config.DbConfiguration;
+import com.demo.keeptuit.service.db.datalayer.api.NoteDataService;
+import com.demo.keeptuit.service.db.entity.NoteDb;
+import com.demo.keeptuit.service.db.entity.UserDb;
+import com.demo.keeptuit.service.db.exception.NoteAlreadyExistsExeption;
+import com.demo.keeptuit.service.db.exception.NoteNotFoundException;
+import com.demo.keeptuit.service.db.repository.NoteRepository;
+import com.demo.keeptuit.service.db.repository.UserRepository;
 
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.Arrays;
-import java.util.Random;
 
 import static java.lang.Long.parseLong;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
@@ -73,7 +68,7 @@ public class NoteDataServiceImplTest extends AbstractTestNGSpringContextTests {
     public void canUpdateNote() throws Exception {
         NoteDb createdNote = noteDataService.createNote(aSampleNote());
         NoteDb noteToUpdate = createdNote.withTitle("Updated" + randomAlphanumeric(3));
-        assertTrue(reflectionEquals(noteDataService.updateNote(noteToUpdate), noteToUpdate, "user"), "Notes mismatch");
+        assertTrue(EqualsBuilder.reflectionEquals(noteDataService.updateNote(noteToUpdate), noteToUpdate, "user"), "Notes mismatch");
     }
 
     @Test(expectedExceptions = NoteNotFoundException.class)

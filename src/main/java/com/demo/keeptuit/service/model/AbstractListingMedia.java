@@ -1,9 +1,8 @@
-package com.demo.keeptuit.model;
+package com.demo.keeptuit.service.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.annotation.Nonnull;
-import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 
