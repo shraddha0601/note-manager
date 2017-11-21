@@ -23,9 +23,9 @@ import java.util.concurrent.TimeUnit;
 
 
 @Configuration
-@ComponentScan("com.demo.keeptuit.db")
+@ComponentScan("com.demo.keeptuit.service.db")
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.demo.keeptuit.db")
+@EnableJpaRepositories(basePackages = "com.demo.keeptuit.service.db")
 public class DbConfiguration {
 
     @Autowired
@@ -60,7 +60,7 @@ public class DbConfiguration {
         lemfb.setDataSource(dataSource);
         lemfb.setJpaVendorAdapter(jpaVendorAdapter());
         lemfb.setJpaProperties(hibernateProperties());
-        lemfb.setPackagesToScan("com.demo.keeptuit.db.entity");
+        lemfb.setPackagesToScan("com.demo.keeptuit.service.db.entity");
         return lemfb;
     }
 
