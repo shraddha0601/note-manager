@@ -1,5 +1,6 @@
-package com.demo.keeptuit.db;
+package com.demo.keeptuit.db.repository;
 
+import com.demo.keeptuit.db.TestConfiguration;
 import com.demo.keeptuit.db.config.DbConfiguration;
 import com.demo.keeptuit.db.entity.NoteDb;
 import com.demo.keeptuit.db.repository.NoteRepository;

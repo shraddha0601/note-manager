@@ -78,4 +78,14 @@ public class NoteDb extends Versioned {
         this.content = content;
         return this;
     }
+
+    public NoteDb withUser(UserDb user) {
+        this.user = user;
+        return this;
+    }
+
+    public NoteDb withId(long id) {
+        this.id = id;
+        return this;
+    }
 }
