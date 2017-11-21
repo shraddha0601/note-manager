@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+/**
+ * Implementation of {@code UserDataService}
+ */
 @ParametersAreNonnullByDefault
 @Service
 public class UserDataServiceImpl implements UserDataService {
@@ -16,6 +19,9 @@ public class UserDataServiceImpl implements UserDataService {
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public UserDb getUser(String userName) {
         UserDb user = userRepository.findByUserName(userName);

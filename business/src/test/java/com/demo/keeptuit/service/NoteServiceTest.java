@@ -4,6 +4,7 @@ import com.demo.keeptuit.service.db.datalayer.api.NoteDataService;
 import com.demo.keeptuit.service.db.datalayer.api.UserDataService;
 import com.demo.keeptuit.service.db.entity.NoteDb;
 import com.demo.keeptuit.service.db.entity.UserDb;
+import com.demo.keeptuit.service.db.exception.InvalidUserException;
 import com.demo.keeptuit.service.db.exception.UserNotFoundException;
 import com.demo.keeptuit.service.service.NoteService;
 import org.testng.annotations.BeforeMethod;
@@ -61,6 +62,11 @@ public class NoteServiceTest {
             return;
         }
         fail("should have failed");
+    }
+
+    @Test(expectedExceptions = InvalidUserException.class)
+    public void cannotAddNoteIfBlankUsernamePassed() throws Exception {
+        noteService.createNote(null, aSampleNote());
     }
 
     @Test(expectedExceptions = UserNotFoundException.class)

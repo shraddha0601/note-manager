@@ -1,5 +1,7 @@
 package com.demo.keeptuit.service.resource;
 
+import com.demo.keeptuit.service.db.exception.InvalidUserException;
+import com.demo.keeptuit.service.db.exception.UserNotFoundException;
 import com.demo.keeptuit.service.exception.InvalidResourceException;
 import com.demo.keeptuit.service.service.NoteService;
 import com.demo.keeptuit.service.service.UserService;
@@ -11,6 +13,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;

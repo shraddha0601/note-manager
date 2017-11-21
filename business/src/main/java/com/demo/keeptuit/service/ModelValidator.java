@@ -12,6 +12,9 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import java.util.Set;
 
+/**
+ * Validator for business models
+ */
 @Component
 public class ModelValidator {
     private static final Logger log = LoggerFactory.getLogger(ModelValidator.class);
@@ -25,6 +28,13 @@ public class ModelValidator {
         this.validator = factory.getValidator();
     }
 
+    /**
+     * Validate a given objects against constraints defined
+     *
+     * @param object - object to be validated
+     * @param <T> - type of the object to be validated
+     * @throws ConstraintViolationException - when validation fails
+     */
     public <T> void validate(final T object) {
 
         Set<ConstraintViolation<T>> violations = validator.validate(object);

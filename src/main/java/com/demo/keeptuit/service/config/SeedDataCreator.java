@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
+/**
+ * Data seeder
+ */
 @Component
 public class SeedDataCreator {
 

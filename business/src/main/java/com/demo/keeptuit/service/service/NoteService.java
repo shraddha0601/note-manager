@@ -4,7 +4,9 @@ import com.demo.keeptuit.service.ModelValidator;
 import com.demo.keeptuit.service.db.datalayer.api.NoteDataService;
 import com.demo.keeptuit.service.db.datalayer.api.UserDataService;
 import com.demo.keeptuit.service.db.entity.NoteDb;
+import com.demo.keeptuit.service.db.exception.InvalidUserException;
 import com.demo.keeptuit.service.db.exception.UserNotFoundException;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,11 @@ public class NoteService {
     private ModelValidator validator;
 
     public NoteDb createNote(String userName, NoteDb note) {
+
+        if (StringUtils.isBlank(userName)) {
+            throw new InvalidUserException();
+        }
+
         validator.validate(note);
         try {
             note.setUser(userDataService.getUser(userName));

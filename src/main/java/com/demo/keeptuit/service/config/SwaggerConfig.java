@@ -32,6 +32,9 @@ import static com.google.common.collect.Lists.newArrayList;
 import static springfox.documentation.builders.PathSelectors.ant;
 import static springfox.documentation.builders.PathSelectors.regex;
 
+/**
+ * Defines swagger config
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {

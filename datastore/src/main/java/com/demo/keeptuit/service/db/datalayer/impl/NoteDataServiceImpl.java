@@ -13,6 +13,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+/**
+ * Implementation of {@code NoteDataService}
+ */
 @ParametersAreNonnullByDefault
 @Service
 public class NoteDataServiceImpl implements NoteDataService {
@@ -22,6 +25,9 @@ public class NoteDataServiceImpl implements NoteDataService {
     @Autowired
     private NoteRepository noteRepository;
 
+    /**
+     * {@inheritDoc}
+     */
     public NoteDb createNote(NoteDb note) {
         try {
             return noteRepository.save(note);
@@ -30,6 +36,9 @@ public class NoteDataServiceImpl implements NoteDataService {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public NoteDb updateNote(NoteDb note) {
         if (noteRepository.exists(note.getId())) {
             return noteRepository.save(note);
@@ -39,6 +48,9 @@ public class NoteDataServiceImpl implements NoteDataService {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public void deleteNote(Long noteId) {
         if (noteRepository.exists(noteId)) {
             noteRepository.delete(noteId);
