@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Resoruce for NoteMedia operations
+ * REST Resoruce for NoteMedia operations
  */
 @RestController
 @Api(value = "Notes", description = "Notes")

@@ -68,7 +68,6 @@ public class DbConfiguration {
         properties.put("hibernate.globally_quoted_identifiers", true);
         properties.put("hibernate.cache.auto_evict_collection_cache", true);
         properties.put("hibernate.connection.useUnicode", true);
-//        properties.put("hibernate.default_schema", schema);
         properties.put("hibernate.dialect", dialect);
         properties.put("hibernate.id.new_generator_mappings", isSequenceGen);
         return properties;
