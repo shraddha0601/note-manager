@@ -1,13 +1,15 @@
-package com.demo.keeptuit.service.task;
+package com.demo.keeptuit.service.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
 
-public class MailConfiguration {
+@Configuration
+public class EmailConfiguration {
 
     @Bean
     public JavaMailSender getJavaMailSender() {

@@ -34,9 +34,6 @@ public class DbConfiguration {
     @Value("${keeptuit.datastore.sessionFactory.hibernate.dialect:org.hibernate.dialect.H2Dialect}")
     private String dialect;
 
-//    @Value("${keeptuit.datastore.schema:keeptuit}")
-//    private String schema;
-
     @Value("${keeptuit.id.new.generator.mappings:true}")
     private boolean isSequenceGen;
 
