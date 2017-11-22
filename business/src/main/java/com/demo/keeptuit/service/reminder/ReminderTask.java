@@ -24,7 +24,7 @@ public class ReminderTask {
      * Find notes that need to trigger reminders and notify the listeners
      *
      */
-    @Scheduled(fixedRate = 300000, initialDelay = 10000) //Should ideally run every second
+    @Scheduled(fixedRateString = "${fixed.rate}", initialDelayString = "${initial.delay}") //Should ideally run every second
     public void findReminderNotes() {
         List<NoteDb> notes = reminderService.getAllUpcomingReminderNotes();
         dispatcher.notifyListeners(notes);
