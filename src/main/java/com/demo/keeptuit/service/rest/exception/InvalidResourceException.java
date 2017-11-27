@@ -1,9 +1,7 @@
-package com.demo.keeptuit.service.exception;
+package com.demo.keeptuit.service.rest.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-import java.io.Serializable;
 
 /**
  * The type Invalid resource exception.

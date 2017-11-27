@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
 public class NoteDb extends Versioned {
 
     private static final int TITLE_MAX_LENGTH = 15;
-    private static final String TITLE_INVALID_NAME = "Note title is invalid";
+    private static final String TITLE_INVALID_NAME = "Note title should be less than 15 characters";
     private static final String MSG_REQUIRED_TITLE = "Note title cannot be left blank";
     private static final int CONTNENT_MAX_LENGTH = 256;
     private static final String CONTENT_INVALID_NAME = "Note contents are invalid";

@@ -1,4 +1,4 @@
-package com.demo.keeptuit.service.model;
+package com.demo.keeptuit.service.rest.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -42,7 +42,7 @@ public class NoteMedia extends AbstractMediaType {
      *
      * @return the title
      */
-    @ApiModelProperty(example = "\"note-title\"", value = "The note title", required = true)
+    @ApiModelProperty(example = "note-title", value = "The note title", required = true)
     public String getTitle() {
         return title;
     }
@@ -62,7 +62,7 @@ public class NoteMedia extends AbstractMediaType {
      *
      * @return the content
      */
-    @ApiModelProperty(example = "\"note-content\"", value = "The note details", required = false)
+    @ApiModelProperty(example = "note-content", value = "The note details", required = false)
     public String getContent() {
         return content;
     }

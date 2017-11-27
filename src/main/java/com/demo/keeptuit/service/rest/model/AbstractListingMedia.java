@@ -1,4 +1,4 @@
-package com.demo.keeptuit.service.model;
+package com.demo.keeptuit.service.rest.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

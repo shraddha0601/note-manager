@@ -1,11 +1,11 @@
-package com.demo.keeptuit.service.resource;
+package com.demo.keeptuit.service.rest.resource;
 
-import com.demo.keeptuit.service.exception.InvalidResourceException;
+import com.demo.keeptuit.service.rest.exception.InvalidResourceException;
 import com.demo.keeptuit.service.business.service.NoteService;
 import com.demo.keeptuit.service.business.service.UserService;
 import com.demo.keeptuit.service.db.entity.NoteDb;
-import com.demo.keeptuit.service.model.NoteListMedia;
-import com.demo.keeptuit.service.model.NoteMedia;
+import com.demo.keeptuit.service.rest.model.NoteListMedia;
+import com.demo.keeptuit.service.rest.model.NoteMedia;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -81,7 +81,7 @@ public class NoteResource {
                     .withId(createdNote.getId());
 
         } catch (ConstraintViolationException e) {
-            throw new InvalidResourceException();
+            throw new InvalidResourceException(e.getMessage());
         }
     }
 
